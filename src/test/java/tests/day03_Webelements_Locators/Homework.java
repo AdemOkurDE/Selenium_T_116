@@ -33,13 +33,15 @@ d.Sonra karşınıza çıkan ilk sonucun resmine tıkla
 
         WebElement aramaKutusuElementi = driver.findElement(By.id("twotabsearchtextbox"));
 
-        aramaKutusuElementi.sendKeys("city bike");
+        aramaKutusuElementi.sendKeys("nutella");
         aramaKutusuElementi.submit();
 
         // c. Amazon'da görüntülenen ilgili sonuçların sayısını yazdırın
 
-        List<WebElement> urunSayisiList=driver.findElements(By.xpath("//div[@class='a-section aok-relative s-image-fixed-height']"));
-        System.out.println(urunSayisiList.size());
+        // List<WebElement> urunSayisiList=driver.findElements(By.xpath("//div[@class='a-section aok-relative s-image-fixed-height']"));
+        List<WebElement> urunSayisiList=driver.findElements(By.xpath("//a[@class='a-link-normal s-no-outline']"));
+
+        System.out.println("Gosterilen Urun sayisi : "+urunSayisiList.size());
 
         // d.Sonra karşınıza çıkan ilk sonucun resmine tıkla
 
