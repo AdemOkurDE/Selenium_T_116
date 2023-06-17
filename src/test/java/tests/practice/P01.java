@@ -1,5 +1,6 @@
 package tests.practice;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -33,8 +34,12 @@ public class P01 {
 
         //  Open google home page https://www.google.com
         driver.get("https://www.google.com");
-        /*
+        Thread.sleep(750);
+
+        driver.findElement(By.xpath("//*[@id='W0wltc']")).click();
+
         Thread.sleep(2000);
+        /*
         driver.manage().window().fullscreen();
         Thread.sleep(2000);
         driver.manage().window().maximize();
@@ -42,7 +47,10 @@ public class P01 {
 
         //  On the same class, navigate to amazon home page https://www.amazon.com and navigate back to google
         driver.navigate().to("https://www.amazon.com");
-       // Thread.sleep(2000);
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//input[@data-action-type='DISMISS']")).click();
+       Thread.sleep(2000);
         driver.navigate().back();
 
         //  Wait about 4 sn
