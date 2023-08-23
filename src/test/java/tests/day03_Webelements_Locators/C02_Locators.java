@@ -8,8 +8,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class C02_Locators {
+    public static boolean stringRakamIceriyorMu(String str) {
+        Pattern pattern = Pattern.compile("\\d");
+        Matcher matcher = pattern.matcher(str);
+        return matcher.find(); // Eşleşme bulunursa true döner, aksi halde false.
+    }
     public static void main(String[] args) throws InterruptedException {
 
 
@@ -32,6 +39,12 @@ public class C02_Locators {
         aramaKutusuElementi.submit();
 
         // gosterilen urunlerin 10'dan fazla oldugunu test edin
+        WebElement sonucYazisiElementi= driver.findElement(By.xpath("//*[@class='a-section a-spacing-small a-spacing-top-small']"));
+        System.out.println(sonucYazisiElementi.getText());
+        Boolean arama = sonucYazisiElementi.getText().contains("//d");
+        Boolean rakamVarMi=stringRakamIceriyorMu(sonucYazisiElementi.getText());
+        System.out.println("Nutella aramasi icerir mi : " + rakamVarMi);
+
         // Locator stratejisi olarak By.className secildiginde class attribute'nin degeri space(bosluk) iceririyorsa
         // locate islemi basarisiz olabilir
 
